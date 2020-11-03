@@ -1,0 +1,11 @@
+Pakistani Rupee	1.00 PKR	inv. 1.00 PKR
+US Dollar	0.006179	161.835761
+Euro	0.005209	191.979161
+British Pound	0.004737	211.088025
+Indian Rupee	0.456598	2.190109
+Australian Dollar	0.008654	115.549486
+Canadian Dollar	0.008112	123.272227
+Singapore Dollar	0.008392	119.160996
+Swiss Franc	0.005587	178.993762
+Malaysian Ringgit	0.025692	38.923010
+Japanese Yen	0.646885	1.545869
