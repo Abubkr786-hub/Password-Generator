@@ -1,50 +1,25 @@
-import pyttsx3  # pip install pyttsx3
-import speech_recognition as sr  # pip install speechRecognition
-import datetime
-import wikipedia
+import string
+import random
+import pyperclip as pc
+
+set_1 = string.ascii_lowercase
+set_2 = string.ascii_uppercase
+set_4 = string.digits
+set_3 = string.punctuation
+
+pwdLength = int(input("How long do you want your password:\t"))
+pwd = []
+pwd.extend(list(set_1))
+pwd.extend(list(set_2))
+pwd.extend(list(set_3))
+pwd.extend(list(set_4))
+
+random.shuffle(pwd)
+print("Your password is:")
+copyPwd = "\t\t" + "".join(pwd[0:pwdLength])
+print(copyPwd)
+pc.copy(copyPwd)
+print("Password is copied to clipboard")
 
 
-engine = pyttsx3.init('sapi5')
-voices =  engine.getProperty('voices')
-engine.setProperty('voice', voice[0].id)
 
-def speak(audio):
-    engine.say(audio)
-    engine.runAndWait()
-
-
-def wishMe():
-    hour = int(datetime.datetime.now().hour)
-    print(hour)
-    if hour >= 0 and hour < 12:
-        speak("Good Morning !")
-    elif hour >= 12 and hour < 18:
-        speak("Good Afternoon !")
-    elif hour >= 12 and hour < 10:
-        speak("Good Night !")
-
-
-def takeCommand():
-    # It takes microphone input from the user and returns string output
-
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        r.pause_threshold = 1
-        audio = r.listen(source)
-
-
-if __name__ == "__main__":
-    wishMe()
-    while True:
-    # if 1:
-        query = takeCommand().lower() #Converting user query into lower case
-
-        # Logic for executing tasks based on query
-        if 'wikipedia' in query:  #if wikipedia found in the query then this block will be executed
-            speak('Searching Wikipedia...')
-            query = query.replace("wikipedia", "")
-            results = wikipedia.summary(query, sentences=2)
-            speak("According to Wikipedia")
-            print(results)
-            speak(results)
